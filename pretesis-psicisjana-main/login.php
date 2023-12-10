@@ -18,25 +18,26 @@ require_once "php_login.php";
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Signin Simple</title>
+    <title>Login-PicisJana</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- Enlaza tu archivo CSS personalizado -->
+    
     <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
 <div class="container">
     <div class="row justify-content-center align-items-center min-vh-100">
+        <div class="text-left">          
+            <a href="index.html" aria-label="Space">
+                <img class="mb-3" src="assets/image/psicisjana.png" alt="Logo" height="500">
+            </a>
+        </div>    
         <div class="col-md-6">
-            <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="login-form">
-                <div class="text-center">
-                    <a href="index.html" aria-label="Space">
-                        <img class="mb-3" src="assets/image/psicisjana.png" alt="Logo" width="60" height="60">
-                    </a>
-                </div>
+            <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="login-form">                
+                
                 <div class="text-center mb-4">
-                    <h1 class="h3 mb-0">Por favor, inicie sesión</h1><br>
-                    <p>Iniciar sesión para administrar su cuenta.</p> <br>
+                    <h1 class="h3 mb-0">Bienvenido a PicisJana</h1><br>
+                    <p>Iniciar sesión para administrar su cuenta</p> <br>
                 </div>
 
                 <div class="form-group <?= (!empty($email_err)) ? 'has-error' : ''; ?>">
@@ -46,7 +47,7 @@ require_once "php_login.php";
                                 <i class="fa fa-user"></i>
                             </span>
                         </div>
-                        <input type="email" class="form-control" name="email" placeholder="Email" aria-label="Email" data-msg="Please enter a valid email address." data-error-class="u-has-error" data-success-class="u-has-success" value="<?= $email; ?>">
+                        <input type="email" class="form-control" name="email" placeholder="Correo" aria-label="Email" data-msg="Please enter a valid email address." data-error-class="u-has-error" data-success-class="u-has-success" value="<?= $email; ?>">
                     </div>
                     <span class="help-block"><?= $email_err; ?></span>
                 </div>
@@ -58,7 +59,7 @@ require_once "php_login.php";
                                 <i class="fa fa-lock"></i>
                             </span>
                         </div>
-                        <input type="password" class="form-control" name="password" placeholder="Password">
+                        <input type="password" class="form-control" name="password" placeholder="Contraseña">
                     </div>
                     <span class="help-block"><?= $password_err; ?></span>
                 </div>
