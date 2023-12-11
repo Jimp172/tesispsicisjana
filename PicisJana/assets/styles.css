@@ -37,14 +37,14 @@ img {
 
 .btn-primary {
     color: #fff !important;
-    background-color: #1BA262 !important;
-    border-color: #1BA262 !important;
+    background-color: #C76BFF !important;
+    border-color: #6C60FF !important;
     padding: 1em;
 }
 .btn-primary:hover {
     color: #fff !important;
-    background-color: #168652 !important;
-    border-color: #168652 !important;
+    background-color: #6C60FF !important;
+    border-color: #6C60FF !important;
     padding: 1em;
 }
 .btn-group-sm>.btn, .btn-sm {
@@ -54,7 +54,7 @@ img {
     border-radius: .2rem;
 }
 a {
-    color: #21c87a;
+    color: #3A36DB;
     text-decoration: none;
     background-color: transparent;
 }
@@ -97,7 +97,7 @@ a:hover {
 }
 
 .custom-checkbox .custom-control-input:checked~.custom-control-label::before{
-    background-color:#21C87A;
+    background-color:#C76BFF;
     box-shadow: none !important;
 }
 .custom-control-label:before{
@@ -116,7 +116,7 @@ a:hover {
 
 input:focus {
     box-shadow: none !important;
-    border: 1px solid #20C477 !important;
+    border: 1px solid #6C60FF !important;
     outline-width: 0;
 }
 
