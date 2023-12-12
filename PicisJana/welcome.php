@@ -1,15 +1,15 @@
 <?php
 // Inicializa la sesión
 session_start();
- 
-// Verifique si el usuario ha iniciado sesión, si no, rediríjalo a la página de inicio de sesión
+
+// Verifica si el usuario ha iniciado sesión, si no, redirígelo a la página de inicio de sesión
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
 }
 include('db_config.php');
-
 ?>
+
 <!DOCTYPE html>
 	<html>
 	<head>
@@ -17,6 +17,7 @@ include('db_config.php');
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>Admin Dashboard</title>
+        <script src="script2.js"></script>
         <!-- style css php -->
         <?php include_once 'css_style/style.php';?>
 		<!-- end style css php -->
@@ -173,26 +174,24 @@ if ($result->num_rows > 0) {
             </div>
         </div>
         <div class="ibox-content">
-            <ul class="todo-list m-t small-list">
-                <?php
-                $sql = "SELECT * FROM sensor_data ORDER BY timestamp DESC LIMIT 10";
-                $result = $conn->query($sql);
+        <?php
+    $sql = "SELECT * FROM sensor_data ORDER BY timestamp DESC LIMIT 10";
+    $result = $conn->query($sql);
 
-                // Verificar si la consulta se ejecutó correctamente
-                if ($result === false) {
-                    echo "Error en la consulta: " . $conn->error;
-                } else {
-                    while ($row = $result->fetch_assoc()) {
-                        // Verificar si el valor de ph_value es mayor a 5.00
-                        if ($row['ph_value'] > 5.00) {
-                            // Aquí puedes agregar lógica para enviar una notificación
-                            echo '<li><a href="#" class="check-link"><i class="fa fa-square-o"></i></a>';
-                            echo '<span class="m-l-xs">Valor de pH en Incubadora1 es mayor a 5.00: ' . $row['ph_value'] . '</span></li>';
-                        }
-                    }
-                }
-                ?>
-            </ul>
+    // Verificar si la consulta se ejecutó correctamente
+    if ($result === false) {
+        echo "Error en la consulta: " . $conn->error;
+    } else {
+        while ($row = $result->fetch_assoc()) {
+            // Verificar si el valor de ph_value es mayor a 5.00
+            if ($row['ph_value'] > 4.94) {
+                // Aquí puedes agregar lógica para enviar una notificación
+                
+            }
+        }
+    }
+    include('notifications.php');
+    ?>
         </div>
     </div>
 </div>
