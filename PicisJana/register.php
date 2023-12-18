@@ -26,7 +26,7 @@
         
     <div class="text-center">
         <a href="index.html" aria-label="Space">
-            <img class="mb-3" src="assets/image/psicisjana.png" alt="Logo" height="500">
+            <img class="mb-3" src="assets/image/psicisjana.png" alt="Logo" height="400">
         </a>
     </div>
     

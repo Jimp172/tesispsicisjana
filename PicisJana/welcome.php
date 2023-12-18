@@ -21,7 +21,7 @@ include('db_config.php');
         <!-- style css php -->
         <?php include_once 'css_style/style.php';?>
 		<!-- end style css php -->
-	<body>
+    <body>
 		<div id="wrapper">
             <!-- nav -->
             <?php include_once 'sidebar/nav_dashboard.php';?>
@@ -95,39 +95,45 @@ if ($result->num_rows > 0) {
             </div>
         </div>';
 } else {
-    echo '<p>No hay datos disponibles.</p>';
+    echo '<p>No hay datos disponibles</p>';
 }
 ?>
     </div>
 </div>
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="ibox ">
-								<div class="ibox-title">
-									<h5>Grafico de pH</h5>
-									<div class="float-right">
-										<div class="btn-group">
-											<button type="button" class="btn btn-xs btn-white active">Hoy</button>
-											<button type="button" class="btn btn-xs btn-white">Mensual</button>
-											<button type="button" class="btn btn-xs btn-white">Anual</button>
-										</div>
-									</div>
-								</div>
-								<div class="ibox-content">
-									<div class="row">
-										<div class="col-lg-9">
-											<div class="flot-chart">
-												<div class="flot-chart-content" id="flot-dashboard-chart"></div>
-										<div>
-									</div>
-								</div>
-							</div>
-						</div>
+
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="ibox ">
+			<div class="ibox-title">
+				<h5>Grafico de pH</h5>
+				<div class="float-right">
+					<div class="btn-group">
+						<button type="button" class="btn btn-xs btn-white active">Hoy</button>
+						<button type="button" class="btn btn-xs btn-white">Mensual</button>
+						<button type="button" class="btn btn-xs btn-white">Anual</button>
 					</div>
+				</div>
+			</div>
+			<div class="ibox-content">
 					<div class="row">
-						<div class="col-lg-8">
-							<div class="row">
-							<div class="col-lg-6">
+					<div class="col-lg-11">
+						<div class="flot-chart">
+							<div class="flot-chart-content" id="flot-dashboard-chart"></div>
+					<div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="row">
+	<div class="col-lg-8">
+		<div class="row">
+		<div class="col-lg-6">
     <div class="ibox">
         <div class="ibox-title">
             <h5>Detalles incubadora</h5>
@@ -164,6 +170,9 @@ if ($result->num_rows > 0) {
         </div>
     </div>
 </div>
+
+
+
 <div class="col-lg-6">
     <div class="ibox">
         <div class="ibox-title">
@@ -175,26 +184,29 @@ if ($result->num_rows > 0) {
         </div>
         <div class="ibox-content">
         <?php
-    $sql = "SELECT * FROM sensor_data ORDER BY timestamp DESC LIMIT 10";
-    $result = $conn->query($sql);
+        $sql = "SELECT * FROM sensor_data ORDER BY timestamp DESC LIMIT 10";
+        $result = $conn->query($sql);
 
-    // Verificar si la consulta se ejecutó correctamente
-    if ($result === false) {
-        echo "Error en la consulta: " . $conn->error;
-    } else {
-        while ($row = $result->fetch_assoc()) {
-            // Verificar si el valor de ph_value es mayor a 5.00
-            if ($row['ph_value'] > 4.94) {
-                // Aquí puedes agregar lógica para enviar una notificación
-                
+        // Verificar si la consulta se ejecutó correctamente
+        if ($result === false) {
+            echo "Error en la consulta: " . $conn->error;
+        } else {
+            while ($row = $result->fetch_assoc()) {
+                // Verificar si el valor de ph_value es mayor a 5.00
+                if ($row['ph_value'] > 4.94) {
+                    // Aquí puedes agregar lógica para enviar una notificación
+                    
+                }
             }
         }
-    }
-    include('notifications.php');
-    ?>
+        include('notifications.php');
+        ?>
         </div>
     </div>
 </div>
+
+
+
 							</div>
 						</div>
 					</div>

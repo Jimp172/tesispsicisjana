@@ -7,7 +7,7 @@
             </form>
         </div>
         <ul class="nav navbar-top-links navbar-right">
-            <li style="padding: 20px"> <span class="m-r-sm text-muted welcome-message">Biennvenido a Psicis Jana</span> </li>
+            <li style="padding: 20px"> <span class="m-r-sm text-muted welcome-message">Bienvenido a Psicis Jana</span> </li>
             <li>
                 <a href="logout.php"> <i class="fa fa-sign-out"></i> Cerrar sesión </a>
             </li>
