@@ -32,6 +32,42 @@ include('db_config.php');
                 <!-- end navbar -->
 				<div class="wrapper wrapper-content">
     <div class="row">
+
+    <div class="col-lg-3">
+        <div class="ibox">
+            <div class="ibox-title">
+                <h5>Notificaciones</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link"> <i class="fa fa-chevron-up"></i> </a>
+                    <a class="close-link"> <i class="fa fa-times"></i> </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+            <?php
+            $sql = "SELECT * FROM sensor_data ORDER BY timestamp DESC LIMIT 3";
+            $result = $conn->query($sql);
+
+            // Verificar si la consulta se ejecutó correctamente
+            if ($result === false) {
+                echo "Error en la consulta: " . $conn->error;
+            } else {
+                while ($row = $result->fetch_assoc()) {
+                    // Verificar si el valor de ph_value es mayor a 5.00
+                    if ($row['ph_value'] > 4.94) {
+                        // Aquí puedes agregar lógica para enviar una notificación
+                        
+                    }
+                }
+            }
+            include('notifications.php');
+            ?>
+            </div>
+        </div>
+    </div>
+
+
+
+
 	<?php
 // Obtener los últimos valores de la base de datos
 $sql = "SELECT * FROM sensor_data ORDER BY timestamp DESC LIMIT 1";
@@ -57,7 +93,7 @@ if ($result->num_rows > 0) {
     $voltageColorClass = getColorClass($latestData['voltage'], 1854.64, 1854.64);
 
     // Mostrar el valor de pH
-    echo '<div class="col-lg-3">
+    echo '<div class="col-lg-2">
             <div class="ibox ">
                 <div class="ibox-title"> <span class="label label-success float-right">Mensual</span>
                     <h5>Valor pH</h5>
@@ -70,7 +106,7 @@ if ($result->num_rows > 0) {
         </div>';
 
     // Mostrar el valor de temperatura
-    echo '<div class="col-lg-3">
+    echo '<div class="col-lg-2">
             <div class="ibox ">
                 <div class="ibox-title"> <span class="label label-info float-right">Anual</span>
                     <h5>Valor Temperatura</h5>
@@ -83,7 +119,7 @@ if ($result->num_rows > 0) {
         </div>';
 
     // Mostrar el valor de voltaje
-    echo '<div class="col-lg-3">
+    echo '<div class="col-lg-2">
             <div class="ibox ">
                 <div class="ibox-title"> <span class="label label-danger float-right">Low value</span>
                     <h5>Voltaje</h5>
@@ -103,7 +139,7 @@ if ($result->num_rows > 0) {
 
 
 <div class="row">
-	<div class="col-lg-12">
+	<div class="col-lg-9">
 		<div class="ibox ">
 			<div class="ibox-title">
 				<h5>Grafico de pH</h5>
@@ -131,9 +167,9 @@ if ($result->num_rows > 0) {
 
 
 <div class="row">
-	<div class="col-lg-8">
+	<div class="col-lg-10">
 		<div class="row">
-		<div class="col-lg-6">
+		<div class="col-lg-8">
     <div class="ibox">
         <div class="ibox-title">
             <h5>Detalles incubadora</h5>
@@ -173,37 +209,37 @@ if ($result->num_rows > 0) {
 
 
 
-<div class="col-lg-6">
-    <div class="ibox">
-        <div class="ibox-title">
-            <h5>Notificaciones</h5>
-            <div class="ibox-tools">
-                <a class="collapse-link"> <i class="fa fa-chevron-up"></i> </a>
-                <a class="close-link"> <i class="fa fa-times"></i> </a>
+<!--<div class="col-lg-3">
+        <div class="ibox">
+            <div class="ibox-title">
+                <h5>Notificaciones</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link"> <i class="fa fa-chevron-up"></i> </a>
+                    <a class="close-link"> <i class="fa fa-times"></i> </a>
+                </div>
             </div>
-        </div>
-        <div class="ibox-content">
-        <?php
-        $sql = "SELECT * FROM sensor_data ORDER BY timestamp DESC LIMIT 10";
-        $result = $conn->query($sql);
+            <div class="ibox-content">
+            <?php
+/*            $sql = "SELECT * FROM sensor_data ORDER BY timestamp DESC LIMIT 10";
+            $result = $conn->query($sql);
 
-        // Verificar si la consulta se ejecutó correctamente
-        if ($result === false) {
-            echo "Error en la consulta: " . $conn->error;
-        } else {
-            while ($row = $result->fetch_assoc()) {
-                // Verificar si el valor de ph_value es mayor a 5.00
-                if ($row['ph_value'] > 4.94) {
-                    // Aquí puedes agregar lógica para enviar una notificación
-                    
+            // Verificar si la consulta se ejecutó correctamente
+            if ($result === false) {
+                echo "Error en la consulta: " . $conn->error;
+            } else {
+                while ($row = $result->fetch_assoc()) {
+                    // Verificar si el valor de ph_value es mayor a 5.00
+                    if ($row['ph_value'] > 4.94) {
+                        // Aquí puedes agregar lógica para enviar una notificación
+                        
+                    }
                 }
             }
-        }
-        include('notifications.php');
-        ?>
+            include('notifications.php');*/
+            ?>
+            </div>
         </div>
-    </div>
-</div>
+    </div> -->
 
 
 
