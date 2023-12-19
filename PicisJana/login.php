@@ -18,7 +18,7 @@ require_once "php_login.php";
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Login-PicisJana</title>
+    <title>Login-PsicisJana</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     
@@ -29,14 +29,14 @@ require_once "php_login.php";
     <div class="row justify-content-center align-items-center min-vh-100">
         <div class="text-left">          
             <a href="index.html" aria-label="Space">
-                <img class="mb-3" src="assets/image/psicisjana.png" alt="Logo" height="500">
+                <img class="mb-3" src="assets/image/psicisjana.png" alt="Logo" height="400">
             </a>
         </div>    
         <div class="col-md-6">
             <form action="<?= htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="login-form">                
                 
                 <div class="text-center mb-4">
-                    <h1 class="h3 mb-0">Bienvenido a PicisJana</h1><br>
+                    <h1 class="h3 mb-0">Bienvenido a PsicisJana</h1><br>
                     <p>Iniciar sesión para administrar su cuenta</p> <br>
                 </div>
 

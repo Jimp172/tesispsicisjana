@@ -37,7 +37,7 @@ $(document).ready(function() {
             showMethod: 'slideDown',
             timeOut: 4000
         };
-        toastr.success('Responsive Admin', 'Welcome to Dashboard');
+        toastr.success('Administrador', 'Bienvenido al Dashboard de PsicisJana');
     }, 1300);
     var data1 = [
         [0, 4],
@@ -104,7 +104,8 @@ $(document).ready(function() {
             borderWidth: 1,
             color: '#d5d5d5'
         },
-        colors: ["#1ab394", "#1C84C6"],
+        /* color del Grafico */
+        colors: ["#C76BFF", "#6C60FF"],
         xaxis: {},
         yaxis: {
             ticks: 4
