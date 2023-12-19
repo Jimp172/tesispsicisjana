@@ -100,30 +100,32 @@ if ($result->num_rows > 0) {
 ?>
     </div>
 </div>
-					<div class="row">
-						<div class="col-lg-12">
-							<div class="ibox ">
-								<div class="ibox-title">
-									<h5>Grafico de pH</h5>
-									<div class="float-right">
-										<div class="btn-group">
-											<button type="button" class="btn btn-xs btn-white active">Hoy</button>
-											<button type="button" class="btn btn-xs btn-white">Mensual</button>
-											<button type="button" class="btn btn-xs btn-white">Anual</button>
-										</div>
-									</div>
-								</div>
-								<div class="ibox-content">
-									<div class="row">
-										<div class="col-lg-9">
-											<div class="flot-chart">
-												<div class="flot-chart-content" id="flot-dashboard-chart"></div>
-										<div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="ibox ">
+                                    <div class="ibox-title">
+                                        <h5>Grafico de pH</h5>
+                                        <div class="float-right">
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-xs btn-white active">Hoy</button>
+                                                <button type="button" class="btn btn-xs btn-white">Mensual</button>
+                                                <button type="button" class="btn btn-xs btn-white">Anual</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ibox-content">
+                                        <div class="row">
+                                            <div class="col-lg-9">
+                                                <div class="flot-chart">
+                                                    <div class="flot-chart-content" id="flot-dashboard-chart"></div>
+                                            <div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
 					<div class="row">
 						<div class="col-lg-8">
 							<div class="row">
@@ -165,7 +167,7 @@ if ($result->num_rows > 0) {
     </div>
 </div>
 <div class="col-lg-6">
-    <div class="ibox">
+    <div id="notificationsContainer" class="ibox">
         <div class="ibox-title">
             <h5>Notificaciones</h5>
             <div class="ibox-tools">
@@ -175,7 +177,7 @@ if ($result->num_rows > 0) {
         </div>
         <div class="ibox-content">
         <?php
-    $sql = "SELECT * FROM sensor_data ORDER BY timestamp DESC LIMIT 10";
+    $sql = "SELECT * FROM sensor_data ORDER BY timestamp DESC LIMIT 5";
     $result = $conn->query($sql);
 
     // Verificar si la consulta se ejecutó correctamente
@@ -184,7 +186,7 @@ if ($result->num_rows > 0) {
     } else {
         while ($row = $result->fetch_assoc()) {
             // Verificar si el valor de ph_value es mayor a 5.00
-            if ($row['ph_value'] > 4.94) {
+            if ($row['ph_value'] < 6.55) {
                 // Aquí puedes agregar lógica para enviar una notificación
                 
             }

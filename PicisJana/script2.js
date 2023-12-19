@@ -7,11 +7,19 @@ setInterval(function () {
         })
         .catch(error => console.error('Error:', error));
 
+    // Hacer solicitud para latest_data.php
+    fetch("latest_data.php")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("latestDataContainer").innerHTML = data;
+        })
+        .catch(error => console.error('Error:', error));
+
     // Hacer solicitud para notifications.php
     fetch("notifications.php")
         .then(response => response.text())
         .then(data => {
-            document.getElementById("notifications").innerHTML = data;
+            document.getElementById("notificationsContainer").innerHTML = data;
         })
         .catch(error => console.error('Error:', error));
 }, 1000);
