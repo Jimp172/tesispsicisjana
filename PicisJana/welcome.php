@@ -100,9 +100,10 @@ include('db_config.php');
 									datasets: [{
 										label: 'pH Value',
 										data: responseData.dataPoints,
-										backgroundColor: 'rgba(120, 300, 100, 100)',
-										borderColor: 'rgba(120, 300, 100, 100)',
-										borderWidth: 3
+										backgroundColor: 'rgba(199, 110, 255, 1)',
+                                        borderColor: 'rgba(199, 110, 255, 1)',
+										borderWidth: 1,
+                                        barPercentage: 1.5
 									}]
 								},
 								options: {
