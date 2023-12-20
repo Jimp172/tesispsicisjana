@@ -31,12 +31,12 @@ if ($result->num_rows > 0) {
     // Mostrar el valor de pH
     echo '<div class="col-lg-4">
             <div class="ibox ">
-                <div class="ibox-title"> <span class="label label-success float-right">Mensual</span>
+                <div class="ibox-title">
                     <h5>Valor pH</h5>
                 </div>
                 <div class="ibox-content">
                     <h1 class="no-margins ' . $phColorClass . '">' . $latestData['ph_value'] . '</h1>
-                    <div class="stat-percent font-bold ' . $phColorClass . '">98% <i class="fa fa-bolt"></i></div> <small></small> 
+                    <div class="stat-percent font-bold ' . $phColorClass . '">98% </div> <small></small> 
                 </div>
             </div>
         </div>';
@@ -44,12 +44,12 @@ if ($result->num_rows > 0) {
     // Mostrar el valor de temperatura
     echo '<div class="col-lg-4">
             <div class="ibox ">
-                <div class="ibox-title"> <span class="label label-info float-right">Anual</span>
+                <div class="ibox-title">
                     <h5>Valor Temperatura</h5>
                 </div>
                 <div class="ibox-content">
                     <h1 class="no-margins ' . $temperatureColorClass . '">' . $latestData['temperature'] . '</h1>
-                    <div class="stat-percent font-bold ' . $temperatureColorClass . '">20% <i class="fa fa-level-up"></i></div> <small></small> 
+                    <div class="stat-percent font-bold ' . $temperatureColorClass . '">20% </div> <small></small> 
                 </div>
             </div>
         </div>';
@@ -57,12 +57,12 @@ if ($result->num_rows > 0) {
     // Mostrar el valor de voltaje
     echo '<div class="col-lg-4">
             <div class="ibox ">
-                <div class="ibox-title"> <span class="label label-danger float-right">Low value</span>
+                <div class="ibox-title"> 
                     <h5>Voltaje</h5>
                 </div>
                 <div class="ibox-content">
                     <h1 class="no-margins ' . $voltageColorClass . '">' . $latestData['voltage'] . '</h1>
-                    <div class="stat-percent font-bold ' . $voltageColorClass . '">38% <i class="fa fa-level-down"></i></div> <small></small> 
+                    <div class="stat-percent font-bold ' . $voltageColorClass . '">38% </div> <small></small> 
                 </div>
             </div>
         </div>';
