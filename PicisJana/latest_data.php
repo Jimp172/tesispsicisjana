@@ -29,7 +29,7 @@ if ($result->num_rows > 0) {
     echo '<div class="row">';
     
     // Mostrar el valor de pH
-    echo '<div class="col-lg-3">
+    echo '<div class="col-lg-4">
             <div class="ibox ">
                 <div class="ibox-title"> <span class="label label-success float-right">Mensual</span>
                     <h5>Valor pH</h5>
@@ -42,7 +42,7 @@ if ($result->num_rows > 0) {
         </div>';
     
     // Mostrar el valor de temperatura
-    echo '<div class="col-lg-3">
+    echo '<div class="col-lg-4">
             <div class="ibox ">
                 <div class="ibox-title"> <span class="label label-info float-right">Anual</span>
                     <h5>Valor Temperatura</h5>
@@ -55,7 +55,7 @@ if ($result->num_rows > 0) {
         </div>';
     
     // Mostrar el valor de voltaje
-    echo '<div class="col-lg-3">
+    echo '<div class="col-lg-4">
             <div class="ibox ">
                 <div class="ibox-title"> <span class="label label-danger float-right">Low value</span>
                     <h5>Voltaje</h5>
