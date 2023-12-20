@@ -121,8 +121,6 @@ include('db_config.php');
 					xhr.open("GET", "chart_data.php", true);
 					xhr.send();
 				}
-
-				// Llama a la función inicialmente
 				updateChart();
 
 				// Configura la actualización automática cada 5 minutos (ajusta según tus necesidades)
