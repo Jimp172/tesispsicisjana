@@ -37,12 +37,12 @@ include('db_config.php');
         <div class="ibox">
             <div class="ibox-title">
                 <h5>Notificaciones</h5>
-                <div class="ibox-tools">
+                <div  class="ibox-tools">
                     <a class="collapse-link"> <i class="fa fa-chevron-up"></i> </a>
                     <a class="close-link"> <i class="fa fa-times"></i> </a>
                 </div>
             </div>
-            <div class="ibox-content">
+            <div id="notificationsContainer" class="ibox-content">
             <?php
             $sql = "SELECT * FROM sensor_data ORDER BY timestamp DESC LIMIT 3";
             $result = $conn->query($sql);
@@ -64,107 +64,13 @@ include('db_config.php');
             </div>
         </div>
     </div>
-
-
-
-
-	<?php
-// Obtener los últimos valores de la base de datos
-$sql = "SELECT * FROM sensor_data ORDER BY timestamp DESC LIMIT 1";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-    $latestData = $result->fetch_assoc();
-
-    // Función para obtener la clase de color según las condiciones
-    function getColorClass($value, $upperThreshold, $lowerThreshold) {
-        if ($value > $upperThreshold) {
-            return 'text-danger'; // Rojo
-        } elseif ($value < $lowerThreshold) {
-            return 'text-warning'; // Anaranjado
-        } else {
-            return ''; // Sin clase adicional
-        }
-    }
-
-    // Obtener clases de color según las condiciones
-    $phColorClass = getColorClass($latestData['ph_value'], 5, 5);
-    $temperatureColorClass = getColorClass($latestData['temperature'], 25, 25);
-    $voltageColorClass = getColorClass($latestData['voltage'], 1854.64, 1854.64);
-
-    // Mostrar el valor de pH
-    echo '<div class="col-lg-2">
-            <div class="ibox ">
-                <div class="ibox-title"> <span class="label label-success float-right">Mensual</span>
-                    <h5>Valor pH</h5>
-                </div>
-                <div class="ibox-content">
-                    <h1 class="no-margins ' . $phColorClass . '">' . $latestData['ph_value'] . '</h1>
-                    <div class="stat-percent font-bold ' . $phColorClass . '">98% <i class="fa fa-bolt"></i></div> <small></small> 
-                </div>
-            </div>
-        </div>';
-
-    // Mostrar el valor de temperatura
-    echo '<div class="col-lg-2">
-            <div class="ibox ">
-                <div class="ibox-title"> <span class="label label-info float-right">Anual</span>
-                    <h5>Valor Temperatura</h5>
-                </div>
-                <div class="ibox-content">
-                    <h1 class="no-margins ' . $temperatureColorClass . '">' . $latestData['temperature'] . '</h1>
-                    <div class="stat-percent font-bold ' . $temperatureColorClass . '">20% <i class="fa fa-level-up"></i></div> <small></small> 
-                </div>
-            </div>
-        </div>';
-
-    // Mostrar el valor de voltaje
-    echo '<div class="col-lg-2">
-            <div class="ibox ">
-                <div class="ibox-title"> <span class="label label-danger float-right">Low value</span>
-                    <h5>Voltaje</h5>
-                </div>
-                <div class="ibox-content">
-                    <h1 class="no-margins ' . $voltageColorClass . '">' . $latestData['voltage'] . '</h1>
-                    <div class="stat-percent font-bold ' . $voltageColorClass . '">38% <i class="fa fa-level-down"></i></div> <small></small> 
-                </div>
-            </div>
-        </div>';
-} else {
-    echo '<p>No hay datos disponibles</p>';
-}
-?>
+	<div>
+    <div id="latestDataContainer">
+        <?php include('latest_data.php'); ?>
     </div>
 </div>
-
-<<<<<<< HEAD
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="ibox ">
-                                    <div class="ibox-title">
-                                        <h5>Grafico de pH</h5>
-                                        <div class="float-right">
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-xs btn-white active">Hoy</button>
-                                                <button type="button" class="btn btn-xs btn-white">Mensual</button>
-                                                <button type="button" class="btn btn-xs btn-white">Anual</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="ibox-content">
-                                        <div class="row">
-                                            <div class="col-lg-9">
-                                                <div class="flot-chart">
-                                                    <div class="flot-chart-content" id="flot-dashboard-chart"></div>
-                                            <div>
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-=======
-
+    </div>
+</div>
 <div class="row">
 	<div class="col-lg-9">
 		<div class="ibox ">
@@ -179,7 +85,6 @@ if ($result->num_rows > 0) {
 				</div>
 			</div>
 			<div class="ibox-content">
->>>>>>> bfab1d87823bbd5344cd98572110e1e500d441f8
 					<div class="row">
 					<div class="col-lg-11">
 						<div class="flot-chart">
@@ -190,9 +95,6 @@ if ($result->num_rows > 0) {
 		</div>
 	</div>
 </div>
-
-
-
 
 <div class="row">
 	<div class="col-lg-10">
@@ -234,9 +136,8 @@ if ($result->num_rows > 0) {
         </div>
     </div>
 </div>
-<<<<<<< HEAD
 <div class="col-lg-6">
-    <div id="notificationsContainer" class="ibox">
+    <div class="ibox">
         <div class="ibox-title">
             <h5>Notificaciones</h5>
             <div class="ibox-tools">
@@ -266,7 +167,6 @@ if ($result->num_rows > 0) {
         </div>
     </div>
 </div>
-=======
 
 
 
@@ -301,10 +201,6 @@ if ($result->num_rows > 0) {
             </div>
         </div>
     </div> -->
-
-
-
->>>>>>> bfab1d87823bbd5344cd98572110e1e500d441f8
 							</div>
 						</div>
 					</div>
